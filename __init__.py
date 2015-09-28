@@ -58,7 +58,7 @@ def _parse_result(resp_xml):
             return False
 
 
-def nciic_check(courier_id, dict_data):
+def nciic_check(dict_data):
     '''dict_data = {'id_number': <id_number>, 'name': <name>}
     return: True/False
     '''
