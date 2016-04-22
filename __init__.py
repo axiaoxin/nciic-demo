@@ -27,8 +27,8 @@ def _init_inconditions(dict_data):
                  "XM": u"姓名"},
                 {"GMSFHM": dict_data['id_number'],
                  "XM": dict_data['name'],
-                 "@FSD": u'上海',
-                 "@YWLX": 'eleme'}
+                 "@FSD": u'location',
+                 "@YWLX": 'test'}
             ]
         }
     }
@@ -38,8 +38,8 @@ def _init_inconditions(dict_data):
 def _parse_result(resp_xml):
     result = xmltodict.parse(resp_xml, encoding='utf-8')
     if 'RESPONSE' in result:
-        error_xml = json.dumps(result['RESPONSE'])
-        logger.error('NciicServiceError:' + error_xml, ensure_ascii=False)
+        error_xml = json.dumps(result['RESPONSE'], ensure_ascii=False)
+        logger.error('NciicServiceError:' + error_xml)
         raise('NCIIC_SERVICE_ERROR', error_xml)
     else:
         row = result['ROWS']['ROW']
